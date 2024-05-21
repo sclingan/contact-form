@@ -1,1 +1,78 @@
 
+
+:root {
+    --light-green: hsl(148, 38%, 91%);
+    --green: hsl(169, 82%, 27%);
+    --red: hsl(0, 66%, 56%);
+    --white: hsl(0, 0%, 100%);
+    --grey: hsl(186, 15%, 59%);
+    --dark-grey: hsl(187, 24%, 22%);
+    --font-size: 1rem;
+    --ff: 'Karla';
+    --fw: 400;
+    --fw-700: 700;
+}
+
+body {
+    background-color: var(--light-green);
+    font-size: var(--font-size);
+    font-family: var(--ff);
+    font-weight: var(--fw);
+    padding-block: 1rem;
+    padding-inline: 0.5rem;
+}
+
+main {
+    background-color: var(--white);
+    padding-block: 1rem;
+    padding-inline: 1.5rem;
+    border-radius: 1rem;
+}
+
+h1 {
+    font-weight: var(--fw-700);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    padding-block: 0.3rem;
+}
+
+.error {
+    color: var(--red);
+    padding-block: 0.5rem;
+}
+
+.formatError {
+    color: var(--red);
+}
+
+input {
+    padding-block: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.02rem solid var(--grey);
+    margin-block: 0.2rem;
+}
+
+fieldset {
+    border: none;
+    padding-inline: 0;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+}
+
+.radio {
+    border: 0.02rem solid var(--grey);
+    padding-block: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.8rem;
+    padding-inline: 1rem;
+}
+
+input[type='radio'] {
+    margin-right: 0.8rem;
+}
