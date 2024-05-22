@@ -29,12 +29,13 @@ function App() {
           <p className='sr-only'>Please select a query type</p>
         </fieldset>
         <label htmlFor='message'>Message</label>
-        {/* <input type='textarea' name='message' id='message' autoComplete='off'></input> */}
-        <textarea id='message' name='message'></textarea>
+        <textarea id='message' name='message' cols={10} rows={10}></textarea>
         <p className='sr-only'>This field is required</p>
+        <div className='checkbox'>
         <input type='checkbox' id='consent' name='consent'></input>
         <label htmlFor='consent'>I consent to being contacted by the team</label>
         <p className='sr-only'>To submit this form, please consent to being contacted</p>
+        </div>
         <button className='submit'>Submit</button>
       </form>
     </main>

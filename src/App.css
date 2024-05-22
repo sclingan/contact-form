@@ -56,6 +56,8 @@ input {
     border-radius: 0.5rem;
     border: 0.02rem solid var(--grey);
     margin-block: 0.2rem;
+    outline: none;
+    cursor: pointer;
 }
 
 fieldset {
@@ -75,4 +77,88 @@ fieldset {
 
 input[type='radio'] {
     margin-right: 0.8rem;
+}
+
+textarea {
+    border-radius: 0.5rem;
+    outline: none;
+}
+
+input[type='checkbox'] {
+    margin-right: 1rem;
+}
+
+input[type='checkbox']:checked {
+    accent-color: var(--green);
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    padding-block: 1rem;
+    padding-right: 2rem;
+}
+
+button {
+    padding-block: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.02rem solid var(--grey);
+    color: var(--white);
+    background-color: var(--green);
+}
+
+@media(min-width: 50rem) {
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main {
+        min-width: 50rem;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #name {
+        grid-column: 1/1;
+    }
+
+    #Lname {
+        grid-column: 2/2;
+        grid-row: 2/2;
+    }
+
+    #email {
+        grid-column: 1/3;
+    }
+
+    fieldset {
+        grid-column: 1/3;
+    }
+
+    #general {
+        grid-column: 1/1;
+    }
+
+    #support {
+        grid-column: 2/2;
+    }
+
+    #message {
+        grid-column: 1/3;
+    }
+
+    #consent {
+        grid-column: 1/3;
+    }
+
+    button {
+        grid-column: 1/3;
+    }
 }
