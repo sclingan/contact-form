@@ -5,7 +5,7 @@ function App() {
   return (
     <main>
       <h1>Contact Us</h1>
-      <form>
+      <form  action='' method='POST' id='form' name='form'>
         <label htmlFor='name'>First Name <span>*</span></label>
         <input type='text' name='name' id='name' autoComplete='given-name'></input>
         <p className='sr-only'>This field is required</p>
@@ -36,7 +36,7 @@ function App() {
         <label htmlFor='consent'>I consent to being contacted by the team</label>
         <p className='sr-only'>To submit this form, please consent to being contacted</p>
         </div>
-        <button className='submit'>Submit</button>
+        <input type='submit'></input>
       </form>
     </main>
   )
