@@ -1,5 +1,4 @@
 import './App.css'
-import { validate } from './validate'
 import { useState } from 'react'
 
 function App() {
@@ -11,7 +10,8 @@ function App() {
   const [message, setMessage] = useState('');
   const [consent, setConsent] = useState('');
 
-  function handleChange(e) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function handleChange(e: any) {
     const input = e.target.id;
     const value = e.target.value;
     switch(input) {
@@ -24,7 +24,10 @@ function App() {
       case 'email':
         setEmail(value);
         break;
-      case 'query':
+      case 'general':
+        setQuery(value);
+        break;
+      case 'support':
         setQuery(value);
         break;
       case 'message':
@@ -36,8 +39,25 @@ function App() {
       default:
         console.log('error');
     }
-    console.log(name, Lname, email, query, message, consent);
 
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function validate(e: any) {
+    e.preventDefault();
+    const state = [name, Lname, email, query, message, consent]
+    const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent']
+    state.forEach((element, i) =>{
+      const eName = sName[i] + '_error';
+      const error = document.getElementById(eName);
+      if(element === '') {
+        error?.classList.remove('vis');
+        error?.classList.add('error');
+      }else{
+        error?.classList.remove('error');
+        error?.classList.add('vis');
+      }
+    })
   }
 
  
@@ -76,7 +96,7 @@ function App() {
         <label htmlFor='consent'>I consent to being contacted by the team</label>
         </div>
         <p className='vis' id='consent_error'>To submit this form, please consent to being contacted</p>
-        <input type='submit'></input>
+        <input type='submit' onClick={validate}></input>
       </form>
     </main>
   )

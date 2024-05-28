@@ -198,6 +198,10 @@ span {
         grid-column: 1/3;
     }
 
+    .checkbox {
+        grid-column: 1/1;
+    }
+
     #consent {
         grid-column: 1/3;
     }
