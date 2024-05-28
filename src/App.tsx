@@ -11,6 +11,10 @@ function App() {
   const [message, setMessage] = useState('');
   const [consent, setConsent] = useState('');
 
+  function handleChange(e) {
+    setName(e.target.value);
+    console.log(name);
+  }
 
  
 
@@ -19,7 +23,7 @@ function App() {
       <h1>Contact Us</h1>
       <form  action='' method='POST' id='form' name='form'>
         <label htmlFor='name'>First Name <span>*</span></label>
-        <input type='text' name='name' id='name' autoComplete='given-name' onChange={validate}></input>
+        <input type='text' name='name' id='name' autoComplete='given-name' onChange={handleChange}></input>
         <p className='vis' id='name_error'>This field is required</p>
         <label htmlFor='Lname' id='labelLname'>Last Name <span>*</span></label>
         <input type='text' name='Lname' id='Lname' autoComplete='family-name'></input>
