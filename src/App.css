@@ -187,10 +187,12 @@ span {
         grid-column: 1/3;
         display: flex;
         gap: 1.1rem;
+        margin-bottom: 1rem;
     }
 
     .radio {
         min-width: 49%;
+        max-height: 3rem;
     }
 
    
@@ -200,6 +202,7 @@ span {
 
     .checkbox {
         grid-column: 1/1;
+        padding-bottom: 0;
     }
 
     #consent {
@@ -208,5 +211,27 @@ span {
 
     input[type='submit'] {
         grid-column: 1/3;
+    }
+
+    #query_error {
+        position: absolute;
+        top: 28rem;
+        margin-top: 0.5rem;
+    }
+
+    .formatError {
+        position: absolute;
+        top: 21rem;
+    }
+
+    #email_error {
+        grid-column: 1/1;
+        grid-row: 6/6;
+    }
+
+    #consent_error {
+        grid-column: 1/1;
+        padding-top: 0;
+        margin-bottom: 1rem;
     }
 }

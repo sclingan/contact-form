@@ -58,6 +58,8 @@ function App() {
         error?.classList.add('vis');
       }
     })
+    /* handle email validation */
+    /* formatError */
   }
 
  
@@ -74,7 +76,7 @@ function App() {
         <p className='vis' id='Lname_error'>This field is required</p>
         <label htmlFor='email'>Email Address *</label>
         <input type='email' name='email' id='email' autoComplete='email' onChange={handleChange}></input>
-        <p className='formatError'>Please enter a valid email address</p>
+        <p className='vis'>Please enter a valid email address</p>
         <p className='vis' id='email_error'>This field is required</p>
         <fieldset>
           <legend>Query Type <span>*</span></legend>
