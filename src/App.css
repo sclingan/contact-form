@@ -15,6 +15,7 @@
 
 /* TODO:  
    fix auto fill background color
+   add red outline to inputs on error
 */
 
 body {
@@ -62,6 +63,10 @@ input {
     margin-block: 0.2rem;
     outline: none;
     cursor: pointer;
+}
+
+.input_error {
+    border: 0.02rem solid var(--red);
 }
 
 input:focus {

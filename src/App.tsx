@@ -45,21 +45,42 @@ function App() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function validate(e: any) {
     e.preventDefault();
-    const state = [name, Lname, email, query, message, consent]
-    const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent']
+    const state = [name, Lname, email, query, message, consent];
+    const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent'];
+    const validEmail = document.getElementById('email');
     state.forEach((element, i) =>{
       const eName = sName[i] + '_error';
       const error = document.getElementById(eName);
+      const input = document.getElementById(sName[i]);
       if(element === '') {
         error?.classList.remove('vis');
         error?.classList.add('error');
+        input?.classList.add('input_error');
       }else{
         error?.classList.remove('error');
+        input?.classList.remove('input_error');
         error?.classList.add('vis');
       }
     })
     /* handle email validation */
     /* formatError */
+    const value = validEmail?.value;
+    const regex = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@[*[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+]*/;
+    const valid = regex.test(value);
+    const emailError = document.getElementById('valid_email');
+    const emptyEmail = document.getElementById('email_error');
+    if(valid) {
+      console.log('passed');
+      emailError?.classList.remove('formatError');
+      emailError?.classList.add('vis');
+    }else{
+      /* fix empty error msg */
+      emptyEmail?.classList.remove('error')
+      emptyEmail?.classList.add('vis');
+      /* check this */
+      emailError?.classList.remove('vis');
+      emailError?.classList.add('formatError');
+    }
   }
 
  
@@ -76,7 +97,7 @@ function App() {
         <p className='vis' id='Lname_error'>This field is required</p>
         <label htmlFor='email'>Email Address *</label>
         <input type='email' name='email' id='email' autoComplete='email' onChange={handleChange}></input>
-        <p className='vis'>Please enter a valid email address</p>
+        <p className='vis' id='valid_email'>Please enter a valid email address</p>
         <p className='vis' id='email_error'>This field is required</p>
         <fieldset>
           <legend>Query Type <span>*</span></legend>
