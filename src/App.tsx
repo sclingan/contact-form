@@ -47,7 +47,6 @@ function App() {
     e.preventDefault();
     const state = [name, Lname, email, query, message, consent];
     const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent'];
-    const validEmail = document.getElementById('email');
     state.forEach((element, i) =>{
       const eName = sName[i] + '_error';
       const error = document.getElementById(eName);
@@ -63,21 +62,17 @@ function App() {
       }
     })
     /* handle email validation */
-    /* formatError */
-    const value = validEmail?.value;
-    const regex = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@[*[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+]*/;
+    const value = (document.getElementById('email') as HTMLInputElement).value;
+    const regex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
     const valid = regex.test(value);
     const emailError = document.getElementById('valid_email');
     const emptyEmail = document.getElementById('email_error');
     if(valid) {
-      console.log('passed');
       emailError?.classList.remove('formatError');
       emailError?.classList.add('vis');
     }else{
-      /* fix empty error msg */
       emptyEmail?.classList.remove('error')
       emptyEmail?.classList.add('vis');
-      /* check this */
       emailError?.classList.remove('vis');
       emailError?.classList.add('formatError');
     }
