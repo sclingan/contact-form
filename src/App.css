@@ -14,7 +14,7 @@
 }
 
 /* TODO:  
-   fix auto fill background color
+   fix input jump on error
 */
 
 body {
@@ -35,6 +35,7 @@ main {
 
 h1 {
     font-weight: var(--fw-700);
+    margin-bottom: 0.5rem;
 }
 
 form {
@@ -102,8 +103,6 @@ input[type='radio']:checked {
     accent-color: var(--green);
 }
 
-
-
 textarea {
     border-radius: 0.5rem;
     outline: none;
@@ -148,6 +147,22 @@ span {
 
 .vis {
     visibility: hidden;
+    margin-bottom: 0.5rem;
+}
+
+/* Change autocomplete background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+border: 1px solid transparent !important;
+-webkit-box-shadow: 0 0 0px 1000px var(--white) inset !important;
+transition: background-color 5000s ease-in-out 0s !important;
 }
 
 @media(min-width: 50rem) {
