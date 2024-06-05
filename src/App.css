@@ -13,10 +13,6 @@
     --fw-700: 700;
 }
 
-/* TODO:  
-   fix input jump on error
-*/
-
 body {
     background-color: var(--light-green);
     font-size: var(--font-size);
@@ -147,7 +143,7 @@ span {
 
 .vis {
     visibility: hidden;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /* Change autocomplete background color */
@@ -222,6 +218,7 @@ transition: background-color 5000s ease-in-out 0s !important;
     .checkbox {
         grid-column: 1/1;
         padding-bottom: 0;
+        margin-bottom: 0.5rem;
     }
 
     #consent {
@@ -234,7 +231,7 @@ transition: background-color 5000s ease-in-out 0s !important;
 
     #query_error {
         position: absolute;
-        top: 28rem;
+        top: 28.7rem;
         margin-top: 0.5rem;
     }
 
