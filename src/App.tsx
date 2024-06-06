@@ -1,5 +1,6 @@
 import './App.css'
 import { useState } from 'react'
+import success from '../public/images/icon-success-check.svg'
 
 function App() {
 
@@ -116,6 +117,13 @@ function App() {
         <p className='vis' id='consent_error'>To submit this form, please consent to being contacted</p>
         <input type='submit' onClick={validate}></input>
       </form>
+      <aside className='toast'>
+        <div className='toast_img'>
+        <img src={success} alt='Check mark in a circle'></img>
+        <h2>Message Sent!</h2>
+        </div>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+      </aside>
     </main>
   )
 }

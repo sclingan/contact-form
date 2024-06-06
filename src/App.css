@@ -13,6 +13,10 @@
     --fw-700: 700;
 }
 
+/* TODO: 
+     fix block spacing on inputs
+*/
+
 body {
     background-color: var(--light-green);
     font-size: var(--font-size);
@@ -161,6 +165,24 @@ border: 1px solid transparent !important;
 transition: background-color 5000s ease-in-out 0s !important;
 }
 
+/* Toast message for completed form */
+.toast {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    background-color: var(--dark-grey);
+    color: var(--white);
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.5rem;
+    margin-right: 0.2rem;
+}
+
+.toast_img {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 @media(min-width: 50rem) {
 
     body {
@@ -249,5 +271,14 @@ transition: background-color 5000s ease-in-out 0s !important;
         grid-column: 1/1;
         padding-top: 0;
         margin-bottom: 1rem;
+    }
+
+    .toast {
+        position: absolute;
+        top: 0.5rem;
+        right: calc(100% - 70%);
+        left: 40%;
+        padding: 1rem 2rem;
+        max-width: 25%;
     }
 }
