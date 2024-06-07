@@ -46,6 +46,7 @@ function App() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function validate(e: any) {
     e.preventDefault();
+    let isValid = false;
     const state = [name, Lname, email, query, message, consent];
     const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent'];
     state.forEach((element, i) =>{
@@ -60,6 +61,7 @@ function App() {
         error?.classList.remove('error');
         input?.classList.remove('input_error');
         error?.classList.add('vis');
+        isValid = true;
       }
     })
     /* handle email validation */
@@ -76,6 +78,21 @@ function App() {
       emptyEmail?.classList.add('vis');
       emailError?.classList.remove('vis');
       emailError?.classList.add('formatError');
+    }
+    /* If all is valid, submit to server and display success message */
+    const toast = document.getElementById('toast');
+    const validInput = document.getElementsByTagName('input');
+    console.log(validInput[0].className);
+    for(let i = 0; i < validInput.length; i++) {
+      if(validInput[i].className === 'vis') {
+        isValid = true;
+      }else{
+        isValid = false;
+      }
+    }
+    if(isValid) {
+      toast?.classList.remove('visually-hidden');
+      toast?.classList.add('toast');
     }
   }
 
@@ -117,7 +134,7 @@ function App() {
         <p className='vis' id='consent_error'>To submit this form, please consent to being contacted</p>
         <input type='submit' onClick={validate}></input>
       </form>
-      <aside className='toast'>
+      <aside className='visually-hidden' id='toast'>
         <div className='toast_img'>
         <img src={success} alt='Check mark in a circle'></img>
         <h2>Message Sent!</h2>
