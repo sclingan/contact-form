@@ -13,10 +13,6 @@
     --fw-700: 700;
 }
 
-/* TODO: 
-     fix block spacing on inputs
-*/
-
 body {
     background-color: var(--light-green);
     font-size: var(--font-size);
@@ -179,6 +175,10 @@ transition: background-color 5000s ease-in-out 0s !important;
     display: flex;
     flex-direction: row;
     gap: 1rem;
+}
+
+.success {
+    color: var(--white);
 }
 
 @media(min-width: 50rem) {

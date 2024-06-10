@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import success from '../public/images/icon-success-check.svg'
+import success from '/images/icon-success-check.svg'
 
 function App() {
 
@@ -80,14 +80,18 @@ function App() {
       emailError?.classList.add('formatError');
     }
     /* If all is valid, submit to server and display success message */
+
+
+
+    /* Fix This!!!!!!!!!!!!!!!!!!!!!*/
     const toast = document.getElementById('toast');
     const validInput = document.getElementsByTagName('input');
-    console.log(validInput[0].className);
+    console.log(validInput[3].value);
     for(let i = 0; i < validInput.length; i++) {
-      if(validInput[i].className === 'vis') {
-        isValid = true;
-      }else{
+      if(validInput[i].value === '') {
         isValid = false;
+      }else{
+        isValid = true;
       }
     }
     if(isValid) {
@@ -139,7 +143,7 @@ function App() {
         <img src={success} alt='Check mark in a circle'></img>
         <h2>Message Sent!</h2>
         </div>
-        <p>Thanks for completing the form. We'll be in touch soon!</p>
+        <p className='success'>Thanks for completing the form. We'll be in touch soon!</p>
       </aside>
     </main>
   )
