@@ -38,7 +38,7 @@ function App() {
         setConsent(value);
         break;
       default:
-        console.log('error');
+        console.log('error setting state');
     }
 
   }
@@ -47,6 +47,7 @@ function App() {
   function validate(e: any) {
     e.preventDefault();
     let isValid = false;
+    let count = 0;
     const state = [name, Lname, email, query, message, consent];
     const sName = ['name', 'Lname', 'email', 'query', 'message', 'consent'];
     state.forEach((element, i) =>{
@@ -62,6 +63,7 @@ function App() {
         input?.classList.remove('input_error');
         error?.classList.add('vis');
         isValid = true;
+        count += 1;
       }
     })
     /* handle email validation */
@@ -80,21 +82,8 @@ function App() {
       emailError?.classList.add('formatError');
     }
     /* If all is valid, submit to server and display success message */
-
-
-
-    /* Fix This!!!!!!!!!!!!!!!!!!!!!*/
     const toast = document.getElementById('toast');
-    const validInput = document.getElementsByTagName('input');
-    console.log(validInput[3].value);
-    for(let i = 0; i < validInput.length; i++) {
-      if(validInput[i].value === '') {
-        isValid = false;
-      }else{
-        isValid = true;
-      }
-    }
-    if(isValid) {
+    if(isValid && count === 6) {
       toast?.classList.remove('visually-hidden');
       toast?.classList.add('toast');
     }
@@ -143,7 +132,7 @@ function App() {
         <img src={success} alt='Check mark in a circle'></img>
         <h2>Message Sent!</h2>
         </div>
-        <p className='success'>Thanks for completing the form. We'll be in touch soon!</p>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
       </aside>
     </main>
   )

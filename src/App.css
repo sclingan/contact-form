@@ -177,10 +177,6 @@ transition: background-color 5000s ease-in-out 0s !important;
     gap: 1rem;
 }
 
-.success {
-    color: var(--white);
-}
-
 @media(min-width: 50rem) {
 
     body {
